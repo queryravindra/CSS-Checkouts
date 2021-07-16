@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    color: #111;
+    background-color: teal;
+}
+
+.checkbox {
+    position: absolute;  /* relative to window */
+    left: -999px;
+}
+
+.label {
+    position: relative;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.label::before {
+    position: absolute;
+    content: "";
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    left: -30px;
+}
+
+.label::after {
+    position: absolute;
+    content: "\2713";
+    border-radius: 5px;
+    display: inline-block;
+    left: -25px;
+    color: #2ecc71;
+    transform: scale(0);
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label::after {
+    transform: scale(1);
+}
